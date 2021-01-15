@@ -3,7 +3,7 @@ import AddCategory from './components/addCategory'
 import GifGrid from './components/gifGrid'
 
 const GiphyApp = () => {
-  const [categories, setCategories] = useState(['Covid'])
+  const [categories, setCategories] = useState(['Ironman'])
 
   return ( 
     <div>

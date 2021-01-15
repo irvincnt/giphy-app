@@ -1,19 +1,16 @@
 import React, { useState } from 'react';
 import AddCategory from './components/addCategory'
-const GiphyApp = () => {
-  const [categories, setCategories] = useState(['Uno', 'Dos', 'Tres'])
+import GifGrid from './components/gifGrid'
 
-  const handleAdd = () => {
-    setCategories([...categories, 'Cuatro'])
-  }
+const GiphyApp = () => {
+  const [categories, setCategories] = useState(['Covid'])
 
   return ( 
     <div>
       <h2>Giphy App</h2>
       <AddCategory setCategories={setCategories}/>
-      <button onClick={handleAdd}>Agregar</button>
       {categories.map((category) => {
-        return <li key={category}>{category}</li>
+        return <GifGrid key={category} category={category}/>
       })}
     </div>
   );

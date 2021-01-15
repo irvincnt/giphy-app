@@ -11,7 +11,10 @@ const AddCategory = ({setCategories}) => {
   const onSubmitInputValue = (e) => {
     e.preventDefault()
 
-    setCategories(categories => [...categories, inputValue])
+    if (inputValue.length > 2) {
+      setCategories(categories => [inputValue, ...categories])
+      setinputValue('')
+    }
   }
 
   return (

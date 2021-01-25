@@ -5,7 +5,6 @@ import useFetchGifs from '../hooks/useFetchGifs';
 const GifGrid = ({category}) => {
 
   const {loading, data:gifs} = useFetchGifs(category);
-  console.log(gifs, loading)
 
   return (
     <>

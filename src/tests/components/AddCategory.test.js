@@ -35,7 +35,6 @@ describe('Pruebas en <AddCategory />', () => {
     wrapper.find('input').simulate('change', { target: {value} })
 
     // 2.- debe de hacer el submit para mandar el nuevo valor
-    console.log(wrapper.find('form').text())
     wrapper.find('form').simulate('submit', { preventDefault(){} })
 
     // 3.- debe de hacer el llamado

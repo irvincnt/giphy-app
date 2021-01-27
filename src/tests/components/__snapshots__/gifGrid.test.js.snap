@@ -1,15 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Pruebas en <gifGrid> Debe mostrar el componente correctamente 1`] = `
-<div
-  className="card-item"
->
-  <img
-    alt="Titulo test"
-    src="https://localhost/test.jpg"
-  />
+exports[`Pruebas en el <GifGrid /> Debe mostrarse correctamente el componente 1`] = `
+<Fragment>
   <p>
-    Titulo test
+    LOADING...
   </p>
-</div>
+  <h2>
+    Ironman
+  </h2>
+  <div
+    className="cards"
+  />
+</Fragment>
+`;
+
+exports[`Pruebas en el <GifGrid /> debe mostrar items cuando useFetchGifs carge  1`] = `
+<Fragment>
+  <h2>
+    Ironman
+  </h2>
+  <div
+    className="cards"
+  >
+    <GifItem
+      id=""
+      key=""
+      title=""
+      url=""
+    />
+  </div>
+</Fragment>
 `;

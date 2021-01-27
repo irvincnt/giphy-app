@@ -1,34 +1,36 @@
 
 import React from 'react';
 import { shallow } from "enzyme"
-import GifItem from '../../components/gifItem';
+import GifGrid from "../../components/gifGrid"
+import useFetchGifs from '../../hooks/useFetchGifs';
+jest.mock('../../hooks/useFetchGifs')
 
-describe('Pruebas en <gifGrid>', () => {
-  const title = 'Titulo test';
-  const url = 'https://localhost/test.jpg'
-  const wrapper = shallow(<GifItem title={title} url={url}/>)
+describe('Pruebas en el <GifGrid />', () => {
+  const category = 'Ironman'
+  
+  test('Debe mostrarse correctamente el componente', () => {
+    useFetchGifs.mockReturnValue({ // método para que no afecte el siguiente test
+      data: [],
+      loading: true
+    })
 
-  test('Debe mostrar el componente correctamente', () => {
+    const wrapper = shallow( <GifGrid category={category} /> )
     expect(wrapper).toMatchSnapshot();
   })
 
-  test('Debe tener un párrafo con el title', () => {
-    const p = wrapper.find('p');
-    expect( p.text().trim() ).toBe(title)
+  test('debe mostrar items cuando useFetchGifs carge ', () => {
+
+    useFetchGifs.mockReturnValue({ // método para que no afecte el siguiente test
+      data: [{
+        id: '',
+        title: '',
+        url: ''
+      }],
+      loading: false
+    })
+
+    const wrapper = shallow( <GifGrid category={category} /> )
+    expect(wrapper).toMatchSnapshot();
+    
   })
-
-  test('Los props de la imagen deben ser lo correctos', () => {
-    const img = wrapper.find('img');
-    expect( img.prop('src') ).toBe( url )
-    expect( img.prop('alt') ).toBe( title );
-  })
-
-  test('la card debe tener la calse card-item', () =>  {
-    const div = wrapper.find('div')
-    console.log(div.hasClass('card-item'))
-
-    expect(div.hasClass('card-item')).toEqual(true)
-  })
-
-
 })
